@@ -26,15 +26,15 @@ echo
 echo "Method: "
 echo "    1) aes-256-gcm"
 echo "    2) chacha20-ietf-poly1305"
-echo "    3) aes-128-gcm"
-echo "    4) aes-192-gcm"
+echo "    3) chacha20"
+echo "    4) aes-256-cfb"
 echo "    5) other"
 read -p "Select a method: " selec
 case $selec in
     1) method="aes-256-gcm";;
     2) method="chacha20-ietf-poly1305";;
-    3) method="aes-128-gcm";;
-    4) method="aes-192-gcm";;
+    3) method="chacha20";;
+    4) method="aes-256-cfb";;
     5) read -p "Input your method: " method;;
 esac
 echo -e "\033[33mYour method is $method, now write it to config.json...\033[0m"
@@ -45,7 +45,7 @@ echo "    \"server\":\"$server\"," >> config.json
 echo "    \"server_port\":$server_port," >> config.json
 echo "    \"local_port\":1080," >> config.json
 echo "    \"password\":\"$passwd\"," >> config.json
-echo "    \"timeout\":300," >> config.json
+echo "    \"timeout\":2000," >> config.json
 echo "    \"method\":\"$method\"," >> config.json
 
 read -p "Install simple-obfs(y/n)? " if_simple_obfs
